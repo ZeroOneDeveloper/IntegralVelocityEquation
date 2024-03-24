@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 from typing import List, Tuple, Any
 from sklearn.linear_model import LinearRegression
 
+filename = input("Please enter the file name to test.\n(ex. sample.xlsx) : ")
 try:
-    filename = input("Please enter the file name to test.\n(ex. sample.xlsx) : ")
     workbook = openpyxl.load_workbook(f"./datasets/{filename}")
 except FileNotFoundError:
     try:
@@ -13,15 +13,6 @@ except FileNotFoundError:
     except FileNotFoundError:
         print("File not found. Please check the file name and try again.")
         exit()
-try:
-    max_reaction_order = int(
-        input("Please enter the maximum reaction order to test.\n(ex. 10) : ")
-    )
-    if max_reaction_order < 0:
-        raise ValueError
-except ValueError:
-    print("Invalid input. Please enter a natural number.")
-    exit()
 
 sheet = workbook.active
 
@@ -51,27 +42,26 @@ def reaction(
 
 def test():
     r2_scores = []
-    r2_results = openpyxl.Workbook()
-    r2_sheet = r2_results.active
-    for n in range(0, max_reaction_order + 1):
+    n = 0
+    while True:
         t, A, pred, r2 = reaction(n, data)
 
         plt.scatter(t, A)
         plt.title(f"Reaction Order {n}")
         plt.xlabel("Time")
         plt.ylabel("Concentration")
-        # plt figtext on right bottom
         plt.figtext(0.99, 0.01, f"R² Score: {r2}", horizontalalignment="right")
         plt.plot(t, pred, color="red")
         plt.savefig(f"./results/{n}.png")
         plt.close()
 
         r2_scores.append(r2)
-        r2_sheet.append([n, r2])
-    r2_results.save(f"{filename[:-5]}_r2.xlsx")
+        if len(r2_scores) >= 3:
+            if r2_scores[-3] < r2_scores[-2] < r2_scores[-1]:
+                break
+        n += 1
     print(
-        f"The best reaction order is {r2_scores.index(max(r2_scores))} with R² score of {max(r2_scores)}\n"
-        "Please check the results.xlsx for the graphs and the R^2 scores."
+        f"The best reaction order is {r2_scores.index(max(r2_scores))} with R² score of {max(r2_scores)}"
     )
 
 
