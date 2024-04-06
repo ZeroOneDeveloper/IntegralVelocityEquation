@@ -7,6 +7,12 @@
 ## Reason For Selection
 When a chemical reaction occurs, given concentration data over time, it was explored to obtain the order of reaction.
 
+## Proof the integral velocity equation
+- Zero Order Reaction
+```math
+\displaylines{v = -{d[A] \over dt}, v = k \\ \therefore -{d[A] \over dt} = k \\ \therefore d[A] = -k \ dt \\ \int_{[A]_0}^{[A]_t} d[A] = -k \ \int_{0}^{t} dt \\ \therefore\underline{[A]_t = -kt + [A]_0}}
+```
+
 ## Development Environment
 - Macbook Pro, Sonoma OS 14.3.1 (23D60)
 - Python 3.11.6
