@@ -18,6 +18,11 @@ When a chemical reaction occurs, given concentration data over time, it was expl
 \displaylines{v = -{d[A] \over dt}, v = k[A] \\ \therefore -{d[A] \over dt} = k[A] \\ \therefore {1 \over [A]} d[A] = -k \ dt \\ \int_{[A]_0}^{[A]_t} {1 \over [A]} d[A] = -k \ \int_{0}^{t} dt \\ \therefore\underline{\ln{[A]_t} = -kt + \ln{[A]_0}}}
 ```
 
+- Second or more nth Order Reaction
+```math
+\displaylines{v = -{d[A] \over dt}, v = k[A]^{n} \\ \therefore -{d[A] \over dt} = k[A]^{n} \\ \therefore {1 \over [A]^{n}} d[A] = -k \ dt \\ \int_{[A]_0}^{[A]_t} {1 \over [A]^{n}} d[A] = -k \ \int_{0}^{t} dt \\ \therefore\underline{{1 \over {[A]_t}^{n-1}} = (n-1)kt + {1 \over {[A]_0}^{n-1}}}}
+```
+
 ## Development Environment
 - Macbook Pro, Sonoma OS 14.3.1 (23D60)
 - Python 3.11.6
