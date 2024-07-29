@@ -47,3 +47,6 @@ pip install --upgrade -r requirements.txt
 ```bash
 python main.py 
 ```
+
+## LICENSE
+This project is licensed under the GNU GENERAL PUBLIC LICENSE Version 3 License. See the [LICENSE](./LICENSE) file for more details.
