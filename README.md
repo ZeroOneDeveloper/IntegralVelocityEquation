@@ -2,6 +2,7 @@
 
 ### This is a repository to share the process of exploring the Chemistry Integral Velocity Equation, and if there are any improvements or errors, please feel free to open the issue 😊
 
+## Korea Computer Congress 2024 Paper (Korean Institute of Information Scientists and Engineers)
 ## Chemistry II Exploration Performance Tasks for the 1st Semester of 2024
 
 ## Reason For Selection
